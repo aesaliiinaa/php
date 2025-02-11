@@ -7,3 +7,15 @@
     text-align: end;
     font-size: x-large;
 }
+
+.card-body {
+    background-color: #3C3C3C;
+}
+
+.col {
+    margin: 1.5px;
+}
+
+#inputWindow {
+    margin-bottom: 2px;
+}
