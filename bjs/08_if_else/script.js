@@ -1,5 +1,7 @@
-let minValue = parseInt(prompt('Минимальное знание числа для игры','0'));
-let maxValue = parseInt(prompt('Максимальное знание числа для игры','100'));
+let minValue = parseInt(prompt('Минимальное знание числа для игры','0')) || 0;
+let maxValue = parseInt(prompt('Максимальное знание числа для игры','100')) || 100;
+minValue = (minValue < -999) ? -999 : minValue;
+maxValue = (maxValue > 999) ? 999 : maxValue
 alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
 let answerNumber  = Math.floor((minValue + maxValue) / 2);
 let orderNumber = 1;
@@ -23,8 +25,8 @@ switch (randomQuestion) {
 }
 
 document.getElementById('btnRetry').addEventListener('click', function () {
-    minValue = parseInt(prompt('Минимальное знание числа для игры', '0'));
-    maxValue = parseInt(prompt('Максимальное знание числа для игры', '100'));
+    minValue = parseInt(prompt('Минимальное знание числа для игры', '0')) || 0;
+    maxValue = parseInt(prompt('Максимальное знание числа для игры', '100')) || 100;
     
     alert(`Загадайте любое целое число от ${minValue} до ${maxValue}, а я его угадаю`);
 
@@ -89,8 +91,8 @@ document.getElementById('btnOver').addEventListener('click', function () {
 
 document.getElementById('btnLess').addEventListener('click', function () {
     if (gameRun){
-        if (maxValue === minValue){
-            const phraseRandom = Math.round(Math.random());
+        if (minValue >= maxValue){
+            const phraseRandom = Math.round(Math.random() * 2);
             let answerPhrase; 
             switch (phraseRandom) {
                 case 0:
@@ -109,6 +111,7 @@ document.getElementById('btnLess').addEventListener('click', function () {
         } else {
             maxValue = answerNumber - 1;
             answerNumber = Math.floor((minValue + maxValue) / 2);
+            answerNumber = (answerNumber < minValue) ? answerNumber + 1 : answerNumber;
             orderNumber++;
             orderNumberField.innerText = orderNumber;
             const questionRandom = Math.round(Math.random() * 2);
