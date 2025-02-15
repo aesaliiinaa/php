@@ -1,0 +1,30 @@
+body {
+    background-color: #3C3C3C;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.game-card {
+    margin-top: 100px;
+}
+
+.card-header {
+    background-color: #292929;
+    color: white;
+    font-weight: bold;
+}
+
+.card-body {
+    background-color: white;
+}
+
+.card-title {
+    font-size: 2rem;
+}
+
+#genderOutput {
+    font-weight: bold;
+}
+
+#birthYearOutput {
+    font-style: italic;
+}
